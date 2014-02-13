@@ -1,4 +1,4 @@
-package jdwtest;
+package com.bcferrycoder.cflab;
 
 /**
  * Created by IntelliJ IDEA.
