@@ -100,7 +100,7 @@ Copy/paste the certificate to a file, say "/tmp/stackato-xxxx.local"
 
 
 
-3. Try running the app again with **mvn exec:java".  It should now print something like this:
+3. Try running the app again with **mvn exec:java**.  It should now print something like this:
 
     Spaces:
     stackato:stackato
