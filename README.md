@@ -30,8 +30,14 @@ makes a handful of CF client calls to authenticate and print the provisioned Spa
     }
 ```
 
-### Setup
+### Requirements
 
+  * java
+  * mvn
+
+
+### Setup
+  
 1. Clone this repo:
 
 ```bash
