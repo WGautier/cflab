@@ -6,26 +6,33 @@ A simple example of using Cloud Foundry Java Client to access Stackato
 
 1. Clone this repo:
 
+```bash
        git clone https://github.com/bcferrycoder/cflab.git
+```
        
 
 2. Update the arguments in cflab/pom.xml to point to your Stackato instance:
 
+```XML
            <!-- stackato url -->
            <argument>https://api.stackato-m6dw.local</argument>
            <!-- stackato username -->
            <argument>stackato</argument>
            <!-- stackato password -->
            <argument>stackato</argument>
+```
 
 3. Build
 
+```bash
       mvn clean package
+```
 
 4. Run the sample app
 
+```bash
       mvn exec:java
-
+```
 
 ### Notes
 
@@ -35,7 +42,9 @@ To fix this:
 
 1. Obtain the Stackato cert:
 
+```bash
       openssl s_client -showcerts -connect stackato-kr5b.local:443 </dev/null
+```
 
 This will display the certificate along with a bunch of other
 stuff. The certificate is right at the beginning.
@@ -51,7 +60,9 @@ Copy/paste the certificate to a file, say "/tmp/stackato-xxxx.local"
 
 2. Now import the cert to the Java keystore. On my Mac, here's how I did it:
 
+```bash
    sudo keytool -import -file /tmp/stackato-xxxx.local -alias stackato-xxxx -storepass changeit -keystore /System/Library/Frameworks/JavaVM.framework/Home/lib/security/cacerts
+```
 
 
 
