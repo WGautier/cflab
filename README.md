@@ -2,7 +2,35 @@
 
 A simple example of using Cloud Foundry Java Client to access Stackato
 
-### setup
+### Java Code
+
+The Java app in https://github.com/bcferrycoder/cflab/blob/master/src/main/java/com/bcferrycoder/cflab/SimpleCFClient.java 
+makes a handful of CF client calls to authenticate and print the provisioned Spaces, Apps, and Services.
+
+
+```java
+        CloudCredentials credentials = new CloudCredentials(user, password);
+        CloudFoundryClient client = new CloudFoundryClient(credentials, getTargetURL(target));
+        client.login();
+
+        System.out.println("\nSpaces:");
+        for (CloudSpace space : client.getSpaces()) {
+            System.out.println(space.getName() + ":" + space.getOrganization().getName());
+        }
+
+        System.out.println("\nApplications:");
+        for (CloudApplication app : client.getApplications()) {
+            System.out.println(app.getName());
+        }
+
+        System.out.println("\nServices");
+        for (CloudService service : client.getServices()) {
+            System.out.println(service.getName() + ":" + service.getLabel());
+        }
+    }
+```
+
+### Setup
 
 1. Clone this repo:
 
