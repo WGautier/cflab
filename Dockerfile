@@ -31,7 +31,6 @@ RUN cd /tmp; wget http://mirror.gopotato.co.uk/apache/maven/maven-3/3.0.5/binari
 RUN cd /opt; tar -xzf /tmp/apache-maven-3.0.5-bin.tar.gz; mv apache-maven-3.0.5 maven; ln -s /opt/maven/bin/mvn /usr/local/bin; rm -rf /tmp/*
 
 
-RUN git clone https://github.com/bcferrycoder/cflab.git /foo
 RUN git clone https://github.com/bcferrycoder/cflab.git /cflab
 # run with exec:java once, with "noop" parameter, to cache assets
 RUN cd /cflab; mvn clean package exec:java -Dexec.args="noop"
