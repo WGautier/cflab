@@ -1,11 +1,13 @@
 ## Simple CF Client
 
-A simple example of using Cloud Foundry Java Client to access Stackato
+A simple example of using the [Cloud Foundry Java Client](https://github.com/cloudfoundry/cf-java-client) to access Stackato. 
+After installing the Stackato self-signed certificate to the Java keystore, the client connects to Stackato and calls a handful 
+of methods to show the spaces, apps, and services.
 
 
 ### Quick Start
 
-The fastest way to get this running is with docker. 
+The fastest way to get this running is with docker:
 
 ```bash
 git clone https://github.com/bcferrycoder/cflab  
@@ -40,6 +42,10 @@ You can target your own Stackato instance by changing the "docker run" command:
 ```
 
 ## Details
+
+Read on if you want to understand what's going on under the hood. All requirements and steps are 
+encapsulated in the Dockerfile.
+
 
 
 ### Java Code
