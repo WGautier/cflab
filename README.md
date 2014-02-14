@@ -124,7 +124,8 @@ MIIDrTCCApWgAwIBAgIJAJD0vTg7jOiCMA0GCSqGSIb3DQEBBQUAMG0xCzAJBgNV
 BAYTAkNBMSswKQYJKoZIhvcNAQkBFhxzdGFja2F0b0BzdGFja2F0by1rcjViLmxv
 wWL7jWsMcqDkH+zL5tGt6bi0pi424UEYa5lCEa9Y52PVyWQ00urkxVcWaysB32Tt
 mOPc0+UvFThjTTgTmzPoAbLW7GigSVUHfpbRlnYoYh2a
- -----END CERTIFICATE-----
+
+-----END CERTIFICATE-----
 
 Copy/paste the certificate to a file, say "/tmp/stackato-xxxx.local"
 
