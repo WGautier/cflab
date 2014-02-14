@@ -1,4 +1,4 @@
-## Simple CF Client
+## Simple CF Java Client
 
 A simple example of using the [Cloud Foundry Java Client](https://github.com/cloudfoundry/cf-java-client) to access Stackato. 
 After installing the Stackato self-signed certificate to the Java keystore, the client connects to Stackato and calls a handful 
