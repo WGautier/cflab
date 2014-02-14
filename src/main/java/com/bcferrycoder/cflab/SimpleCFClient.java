@@ -24,6 +24,9 @@ public class SimpleCFClient {
 
 
         String target = args[0];
+        if (target == null || target.equals("noop") {
+	  System.exit(0);
+        }
         String user = args[1];
         String password = args[2];
 
