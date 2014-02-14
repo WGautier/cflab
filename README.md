@@ -17,6 +17,7 @@ docker run cflab
 By default this targets an existing Stackato instance on HPCloud. Here's the output:
 
 ```
+
 $ docker run cflab
 
 Targeting Stackato instance https://api.15.126.220.84.xip.io as user stackato
@@ -84,7 +85,7 @@ makes a handful of CF client calls to first authenticate, then print the provisi
 
 ### Setup
   
-Note that these steps are performed automatically 
+Note that these steps are encapsulated in the [Dockerfile](https://raw.github.com/bcferrycoder/cflab/master/Dockerfile). If you're running with docker, no need to follow these manually.
 
 1. Clone this repo:
 
