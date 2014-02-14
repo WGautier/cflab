@@ -14,7 +14,7 @@ git clone https://github.com/bcferrycoder/cflab
 cd cflab; docker built -t cflab .
 docker run cflab
 ```
-By default this targets an exising Stackato instance on HPCloud. Here's the output:
+By default this targets an existing Stackato instance on HPCloud. Here's the output:
 
 ```
 $ docker run cflab
@@ -38,7 +38,7 @@ hello-java-debug:harbor
 You can target your own Stackato instance by changing the "docker run" command:
 
 ```bash
-  docker run cflab -e  STACKATO_HOST=api.stackato-abcd.local -e STACKATO_USER=myusername -e STACKATO_PW=mypw
+  docker run cflab -e  STACKATO_HOST=api.stacka.to -e STACKATO_USER=myusername -e STACKATO_PW=mypw
 ```
 
 ## Details
@@ -50,8 +50,8 @@ encapsulated in the Dockerfile.
 
 ### Java Code
 
-The Java app in https://github.com/bcferrycoder/cflab/blob/master/src/main/java/com/bcferrycoder/cflab/SimpleCFClient.java 
-makes a handful of CF client calls to authenticate and print the provisioned Spaces, Apps, and Services.
+The Java app (source [SimpleCFClient.java](https://github.com/bcferrycoder/cflab/blob/master/src/main/java/com/bcferrycoder/cflab/SimpleCFClient.java)) 
+makes a handful of CF client calls to first authenticate, then print the provisioned Spaces, Apps, and Services.
 
 
 ```java
@@ -84,34 +84,24 @@ makes a handful of CF client calls to authenticate and print the provisioned Spa
 
 ### Setup
   
+Note that these steps are performed automatically 
+
 1. Clone this repo:
 
 ```bash
        git clone https://github.com/bcferrycoder/cflab.git
 ```
-       
 
-2. Update the arguments in cflab/pom.xml to point to your Stackato instance:
-
-```XML
-           <!-- stackato url -->
-           <argument>https://api.stackato-m6dw.local</argument>
-           <!-- stackato username -->
-           <argument>stackato</argument>
-           <!-- stackato password -->
-           <argument>stackato</argument>
-```
-
-3. Build
+2. Build
 
 ```bash
-      mvn clean package
+      cd cflab; mvn -DskipTests=true clean package
 ```
 
-4. Run the sample app
+3. Run the sample app
 
 ```bash
-      mvn exec:java
+      mvn exec:java -Dexec.args="STACKATO_HOST=mystackato.com STACKATO_USER=myuser STACKATO_PW=mypw"
 ```
 
 ### Notes
@@ -134,7 +124,7 @@ MIIDrTCCApWgAwIBAgIJAJD0vTg7jOiCMA0GCSqGSIb3DQEBBQUAMG0xCzAJBgNV
 BAYTAkNBMSswKQYJKoZIhvcNAQkBFhxzdGFja2F0b0BzdGFja2F0by1rcjViLmxv
 wWL7jWsMcqDkH+zL5tGt6bi0pi424UEYa5lCEa9Y52PVyWQ00urkxVcWaysB32Tt
 mOPc0+UvFThjTTgTmzPoAbLW7GigSVUHfpbRlnYoYh2a
------END CERTIFICATE-----
+ -----END CERTIFICATE-----
 
 Copy/paste the certificate to a file, say "/tmp/stackato-xxxx.local"
 
@@ -145,15 +135,17 @@ Copy/paste the certificate to a file, say "/tmp/stackato-xxxx.local"
 ```
 
 
+3. Run the app again with **mvn exec:java**.  It should now print something like this:
 
-3. Try running the app again with **mvn exec:java**.  It should now print something like this:
+Targeting Stackato instance https://api.15.126.220.84.xip.io as user stackato
 
-    Spaces:
-    stackato:stackato
+ Spaces:
+ stackato:stackato
 
-    Applications:
-    jenkins
+ Applications:
+ jenkins
 
-    Services
-    jenkins-fs:filesystem
+ Services
+ jenkins-fs:filesystem
+
 
