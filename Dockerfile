@@ -9,7 +9,7 @@ FROM ubuntu:latest
 # Update the APT cache
 RUN sed 's/main$/main universe/' /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get upgrade -y
+#RUN apt-get upgrade -y
 
 # Install and setup project dependencies
 RUN apt-get install -y curl wget git-core

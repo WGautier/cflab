@@ -2,6 +2,40 @@
 
 A simple example of using Cloud Foundry Java Client to access Stackato
 
+
+### Quick Start
+
+The fastest way to get this running is with docker. 
+
+```bash
+git clone https://github.com/bcferrycoder/cflab  
+cd cflab; docker built -t cflab .
+docker run cflab
+```
+By default this targets an exising Stackato instance on HPCloud. Here's the output:
+
+```
+Spaces:
+stackato:stackato
+
+Applications:
+jenkins
+hello-java
+
+Services
+jenkins-fs:filesystem
+```
+
+
+You can target your own Stackato instance by changing the "docker run" command:
+
+```bash
+  docker run cflab -e  STACKATO_HOST=api.stackato-abcd.local -e STACKATO_USER=myusername -e STACKATO_PW=mypw
+```
+
+## Details
+
+
 ### Java Code
 
 The Java app in https://github.com/bcferrycoder/cflab/blob/master/src/main/java/com/bcferrycoder/cflab/SimpleCFClient.java 
