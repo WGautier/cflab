@@ -12,7 +12,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 
 # Install and setup project dependencies
-RUN apt-get install -y curl wget
+RUN apt-get install -y curl wget git-core
 RUN locale-gen en_US en_US.UTF-8
 
 #prepare for Java download
@@ -25,16 +25,14 @@ RUN apt-get update
 RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 RUN apt-get install -y oracle-java7-installer
 
-# git
-RUN apt-get install -y git-core
-
 # mvn
 # (The debian package sucks massively, so download directly)
 RUN cd /tmp; wget http://mirror.gopotato.co.uk/apache/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz
 RUN cd /opt; tar -xzf /tmp/apache-maven-3.0.5-bin.tar.gz; mv apache-maven-3.0.5 maven; ln -s /opt/maven/bin/mvn /usr/local/bin; rm -rf /tmp/*
 
 RUN git clone https://github.com/bcferrycoder/cflab.git /cflab
-RUN cd /cflab; mvn clean package
+# run with exec:java once, with "noop" parameter, to cache assets
+RUN cd /cflab; mvn clean package exec:java -Dexec.args="noop"
 
 # override these with 'docker run -e STACKATO_HOST=mystackato.local -e STACKATO_USER=myuser -e STACKATO_PW=mypw'
 ENV STACKATO_HOST api.15.126.220.84.xip.io
