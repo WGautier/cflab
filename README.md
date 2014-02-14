@@ -15,6 +15,10 @@ docker run cflab
 By default this targets an exising Stackato instance on HPCloud. Here's the output:
 
 ```
+$ docker run cflab
+
+Targeting Stackato instance https://api.15.126.220.84.xip.io as user stackato
+
 Spaces:
 stackato:stackato
 
@@ -24,6 +28,8 @@ hello-java
 
 Services
 jenkins-fs:filesystem
+hello-java-debug:harbor
+
 ```
 
 
