@@ -34,6 +34,8 @@ public class SimpleCFClient {
         CloudFoundryClient client = new CloudFoundryClient(credentials, getTargetURL(target));
         client.login();
 
+        System.out.println("\targeting Stackato instance " + target + " as user " + user);
+
         System.out.println("\nSpaces:");
         for (CloudSpace space : client.getSpaces()) {
             System.out.println(space.getName() + ":" + space.getOrganization().getName());
@@ -48,6 +50,7 @@ public class SimpleCFClient {
         for (CloudService service : client.getServices()) {
             System.out.println(service.getName() + ":" + service.getLabel());
         }
+        System.out.println("\n");
     }
 
     private static URL getTargetURL(String target) {
