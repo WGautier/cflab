@@ -33,7 +33,7 @@ RUN cd /opt; tar -xzf /tmp/apache-maven-3.0.5-bin.tar.gz; mv apache-maven-3.0.5 
 
 RUN git clone https://github.com/bcferrycoder/cflab.git /cflab
 # run with exec:java once, with "noop" parameter, to cache assets
-RUN cd /cflab; mvn clean package exec:java -Dexec.args="noop"
+RUN cd /cflab; mvn -q -DskipTests=true clean package exec:java -Dexec.args="noop"
 
 # override these with 'docker run -e STACKATO_HOST=mystackato.local -e STACKATO_USER=myuser -e STACKATO_PW=mypw'
 ENV STACKATO_HOST api.15.126.220.84.xip.io

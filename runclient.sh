@@ -7,4 +7,4 @@ keytool -import -noprompt -file /tmp/cert -alias ${STACKATO_HOST} -storepass cha
 cd /cflab
 
 git pull
-mvn -q clean package exec:java -Dexec.args="https://${STACKATO_HOST} ${STACKATO_USER} ${STACKATO_PW}"
+mvn -q -DskipTests=true clean package exec:java -Dexec.args="https://${STACKATO_HOST} ${STACKATO_USER} ${STACKATO_PW}"
